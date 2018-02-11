@@ -1,0 +1,12 @@
+**/launchConfigurations
+**/node_modules
+**/.vscode
+**/temp
+**/public/logs/**
+.idea
+.project
+/cc_summaries
+keyValStore*
+certificate.pem
+chaincode.exe
+app_state*
