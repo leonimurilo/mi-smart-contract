@@ -10,3 +10,5 @@ keyValStore*
 certificate.pem
 chaincode.exe
 app_state*
+# Mac files
+.DS_Store
