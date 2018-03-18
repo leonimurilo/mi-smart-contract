@@ -5,18 +5,23 @@ import (
   pb "github.com/hyperledger/fabric/protos/peer"
 )
 
-func (sc *SmartContract) queryAll(APIstub shim.ChaincodeStubInterface) pb.Response {
+func queryAll(APIstub shim.ChaincodeStubInterface) pb.Response {
   resultsIterator, err := APIstub.GetStateByRange("", "")
   if err != nil {
     return shim.Error(err.Error())
   }
   defer resultsIterator.Close()
 
+  var queryValAsBytes []byte
   for resultsIterator.HasNext() {
 		queryResponse, err := resultsIterator.Next()
 		if err != nil {
 			return shim.Error(err.Error())
 		}
-    return shim.Success(queryResponse)
+
+    // queryKeyAsStr := aKeyValue.Key
+    queryValAsBytes := queryResponse.Value
   }
+
+  return shim.Success(queryValAsBytes)
 }

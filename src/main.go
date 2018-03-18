@@ -1,11 +1,11 @@
 package main
 
 import (
-  "./models"
-  "bytes"
-  "encoding/json"
+  // "./models"
+  // "bytes"
+  // "encoding/json"
   "fmt"
-	"strconv"
+	// "strconv"
   "github.com/hyperledger/fabric/core/chaincode/shim"
   pb "github.com/hyperledger/fabric/protos/peer"
 )
@@ -40,9 +40,9 @@ func (sc *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) pb.Response
 	} else if function == "recordLotReceipt" {
 		// return sc.recordLotReceipt(APIstub, args)
 	} else if function == "queryAll" {
-		return sc.queryAll(APIstub)
+		return queryAll(APIstub)
 	} else if function == "initLedger" {
-		return sc.initLedger(APIstub)
+		return initLedger(APIstub)
 	}
 
 	return shim.Error("Invalid Smart Contract function name.")

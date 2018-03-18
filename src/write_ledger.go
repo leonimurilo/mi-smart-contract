@@ -1,14 +1,13 @@
 package main
 
 import (
-  "bytes"
   "encoding/json"
   "fmt"
   "github.com/hyperledger/fabric/core/chaincode/shim"
   pb "github.com/hyperledger/fabric/protos/peer"
 )
 
-func (sc *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) pb.Response {
+func initLedger(APIstub shim.ChaincodeStubInterface) pb.Response {
 	lots := []Lot{
 		Lot{
       ID: "LOT00001",
@@ -27,7 +26,7 @@ func (sc *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) pb.Resp
         ID: "PDT00001",
         Name: "Maçãs frescas tabajara",
         Type: "Organic",
-        Weight: 150
+        Weight: 150,
       },
       Status: "called",
       ExpectedDeliveryDate: "2018-01-30T00:00:01.00Z",
@@ -53,7 +52,7 @@ func (sc *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) pb.Resp
         ExpirationDate: "2018-03-15T00:00:01.00Z",
         ProductionDate: "2018-01-30T00:00:01.00Z",
         Producer: "Colheitas da tia Nastácia",
-        Weight: 140
+        Weight: 140,
       },
       Status: "departed",
       ExpectedDeliveryDate: "2018-01-03T00:00:01.00Z",
