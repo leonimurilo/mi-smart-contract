@@ -31,7 +31,8 @@ func (sc *SmartContract) Init(stub shim.ChaincodeStubInterface) pb.Response {
 func (sc *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) pb.Response {
 
 	// Retrieve the requested Smart Contract function and arguments
-	function, args := APIstub.GetFunctionAndParameters()
+	function, _ := APIstub.GetFunctionAndParameters()
+  // function, args := APIstub.GetFunctionAndParameters()
 	// Route to the appropriate handler function to interact with the ledger appropriately
 	if function == "recordLotCall" {
 		// return sc.recordLotCall(APIstub, args)
